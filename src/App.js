@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { taskListActions } from "./store/taskList-slice";
+//styles
+import classes from "./App.module.css";
+//components
+import AddTask from "./components/AddTask";
+import TaskForm from "./components/TaskForm";
+import TaskList from "./components/TaskList";
+import TaskCompleted from "./components/TaskCompleted";
+import Header from "./components/Header";
 
-function App() {
+const App = () => {
+  const [isAddTask, setIsAddTask] = useState(false);
+  const dispatch = useDispatch();
+  const taskList = useSelector((state) => state.task.taskList);
+  const taskCompleted = useSelector((state) => state.task.taskCompleted);
+  const savedInput = useSelector((state) => state.task.savedInput);
+  const savedCompTask = useSelector((state) => state.task.savedCompTask);
+  //Setting up local storage
+  useEffect(() => {
+    dispatch(taskListActions.replaceTask(savedInput));
+    dispatch(taskListActions.replaceTaskCompleted(savedCompTask));
+  }, [dispatch, savedInput, savedCompTask]);
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(taskList));
+    localStorage.setItem("completed", JSON.stringify(taskCompleted));
+  }, [taskList, taskCompleted]);
+
+  //Handlers
+  const addTaskHandler = () => {
+    setIsAddTask(true);
+  };
+  const resetAddTaskButtonHandler = () => {
+    setIsAddTask(false);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.container}>
+      <Header onShow={resetAddTaskButtonHandler} />
+      {!isAddTask && <AddTask onAddTask={addTaskHandler} show={isAddTask} />}
+      {isAddTask && <TaskForm />}
+      <TaskList />
+      <TaskCompleted />
     </div>
   );
-}
+};
 
 export default App;

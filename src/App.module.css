@@ -1,0 +1,28 @@
+.container {
+  width: 40vw;
+  margin: auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: #20212c;
+  border-radius: 50vw;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #42445c;
+  border-radius: 50vw;
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    width: 100vw;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+  }
+}
