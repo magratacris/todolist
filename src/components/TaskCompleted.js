@@ -6,8 +6,8 @@ import TaskListDone from "./TaskListDone";
 import { motion } from "framer-motion";
 const TaskCompleted = () => {
   const taskCompleted = useSelector((state) => state.task.taskCompleted);
-  const liveCount = useSelector((state) => state.task.taskCompleted.length);
-  const listContainer = taskCompleted.length === 0 ? "ul-remove" : "ul-task";
+  const liveCount = useSelector((state) => state.task.taskCompleted?.length);
+  const listContainer = taskCompleted?.length === 0 ? "ul-remove" : "ul-task";
   return (
     <Fragment>
       {liveCount ? (
@@ -17,7 +17,7 @@ const TaskCompleted = () => {
         </div>
       ) : null}
       <motion.ul layoutId="done" className={listContainer}>
-        {taskCompleted.map((item) => (
+        {taskCompleted?.map((item) => (
           <TaskListDone key={item.id} id={item.id} text={item.text} />
         ))}
       </motion.ul>

@@ -8,8 +8,8 @@ import { motion } from "framer-motion";
 
 const TaskList = () => {
   const taskList = useSelector((state) => state.task.taskList);
-  const liveCount = useSelector((state) => state.task.taskList.length);
-  const listContainer = taskList.length === 0 ? "ul-remove" : "ul-task";
+  const liveCount = useSelector((state) => state.task.taskList?.length);
+  const listContainer = taskList?.length === 0 ? "ul-remove" : "ul-task";
 
   return (
     <Fragment>
@@ -23,7 +23,7 @@ const TaskList = () => {
       ) : null}
       {/* tasks list */}
       <motion.ul layoutId="list" className={listContainer}>
-        {taskList.map((list) => (
+        {taskList?.map((list) => (
           <TaskListItem
             key={list.id}
             id={list.id}
