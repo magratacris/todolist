@@ -1,5 +1,4 @@
 import React from "react";
-import classes from "./styles/TaskListItem.module.css";
 //assets
 import CheckIcon from "./Icons/CheckIcon";
 import TrashIcon from "./Icons/TrashIcon";
@@ -24,22 +23,22 @@ const TaskListItem = ({ id, text }) => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         whileHover={{ scale: 1.02 }}
-        className={classes.listItem}
+        className="tasklist"
       >
-        <div className={classes.text}>
+        <div className="ml-3 w-3/5 break-words text-xs md:text-sm">
           <h1>{text}</h1>
         </div>
 
-        <div className={classes.check}>
+        <div className="flex">
           <motion.button
             whileHover={{ scale: 1.2 }}
             onHoverStart={(e) => {}}
             onHoverEnd={(e) => {}}
             //*------------------
-            className={classes.delete}
             onClick={deleteTaskHandler}
+            className="mini-btn group"
           >
-            <div className={classes.icon}>
+            <div>
               <TrashIcon />
             </div>
           </motion.button>
@@ -48,8 +47,9 @@ const TaskListItem = ({ id, text }) => {
             onHoverStart={(e) => {}}
             onHoverEnd={(e) => {}}
             onClick={doneTaskHandler}
+            className="mini-btn group"
           >
-            <div className={classes.icon}>
+            <div>
               <CheckIcon />
             </div>
           </motion.button>

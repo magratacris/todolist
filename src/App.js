@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { taskListActions } from "./store/taskList-slice";
-//styles
-import classes from "./App.module.css";
 //components
 import AddTask from "./components/AddTask";
 import TaskForm from "./components/TaskForm";
@@ -35,7 +33,7 @@ const App = () => {
     setIsAddTask(false);
   };
   return (
-    <div className={classes.container}>
+    <div className="mx-auto flex  h-screen max-w-3xl flex-col">
       <Header onShow={resetAddTaskButtonHandler} />
       {!isAddTask && <AddTask onAddTask={addTaskHandler} show={isAddTask} />}
       {isAddTask && <TaskForm />}

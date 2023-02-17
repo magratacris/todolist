@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import classes from "./styles/Header.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { taskListActions } from "../store/taskList-slice";
 //components
@@ -16,7 +15,7 @@ const DEMO_TASK = [
   { id: "t3", text: "Add new colleagues to the mailing list" },
   { id: "t4", text: "Follow up Jimmy's question" },
   { id: "t5", text: "Get budget approved by Saimon" },
-  { id: "t6", text: `'I Am Toni' concert with college friends` },
+  { id: "t6", text: "Itzy concert" },
 ];
 const DEMO_COMPLETED_TASK = [
   { id: "c1", text: "Check my work emails" },
@@ -32,7 +31,6 @@ const Header = ({ onShow }) => {
   const dispatch = useDispatch();
   const taskList = useSelector((state) => state.task.taskList);
   const userActive = taskList.find((item) => item.id.length > 2);
-  console.log(userActive);
   //Handlers
   const demoTaskHandler = () => {
     if (userActive) {
@@ -83,33 +81,30 @@ const Header = ({ onShow }) => {
           onContinue={isActive ? demoContinueHandler : clearContinueHandler}
         />
       )}
-      <div className={classes.header}>
-        <div className={classes["btn-container"]}>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            onHoverStart={(e) => {}}
-            onHoverEnd={(e) => {}}
-            className={`${classes.btn} ${classes["demo-btn"]}`}
-            onClick={demoTaskHandler}
-          >
-            {"Demo( Try Me! )"}
-          </motion.button>
-        </div>
+      <div className="flex-shrink-1 my-2 flex h-16  items-center justify-center space-x-11 text-sm md:justify-between md:space-x-0">
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          onHoverStart={(e) => {}}
+          onHoverEnd={(e) => {}}
+          onClick={demoTaskHandler}
+          className="header-btn"
+        >
+          {"Demo (Try Me!)"}
+        </motion.button>
+
         <div>
-          <h1>ToDo List</h1>
+          <h1 className="md:text:sm text-xs">ToDo List</h1>
         </div>
 
-        <div className={classes["btn-container"]}>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            onHoverStart={(e) => {}}
-            onHoverEnd={(e) => {}}
-            className={`${classes.btn} ${classes["clear-btn"]}`}
-            onClick={clearTaskHandler}
-          >
-            Clear All
-          </motion.button>
-        </div>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          onHoverStart={(e) => {}}
+          onHoverEnd={(e) => {}}
+          onClick={clearTaskHandler}
+          className="header-btn"
+        >
+          Clear All
+        </motion.button>
       </div>
     </>
   );

@@ -3,7 +3,6 @@ import React, { Fragment } from "react";
 //lib
 import { motion } from "framer-motion";
 //styles
-import classes from "./styles/AddTask.module.css";
 import AddIcon from "./Icons/AddIcon";
 
 //components
@@ -12,7 +11,10 @@ const AddTask = ({ onAddTask, show }) => {
   return (
     <Fragment>
       {!show && (
-        <motion.div layoutId="above" className={classes.task}>
+        <motion.div
+          layoutId="above"
+          className="group mx-4 flex items-center rounded-2xl bg-main-color duration-500"
+        >
           <motion.button
             key={"addtask"}
             initial={{ scale: 0 }}
@@ -28,10 +30,10 @@ const AddTask = ({ onAddTask, show }) => {
               rotate: -90,
               borderRadius: "100%",
             }}
-            className={classes.btn}
             onClick={onAddTask}
+            className=" my-1 mx-2 rounded-2xl border-[3px] border-accent-color py-3 px-3 hover:bg-accent-color"
           >
-            <div className={classes.addIcon}>
+            <div>
               <AddIcon />
             </div>
           </motion.button>

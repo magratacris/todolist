@@ -12,7 +12,7 @@ const CheckIcon = () => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="feather feather-check"
+      className="feather feather-check group-hover:stroke-main-color"
     >
       <polyline points="20 6 9 17 4 12"></polyline>
     </svg>
