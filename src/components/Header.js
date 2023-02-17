@@ -30,7 +30,7 @@ const Header = ({ onShow }) => {
   const [isActive, setIsActive] = useState(false);
   const dispatch = useDispatch();
   const taskList = useSelector((state) => state.task.taskList);
-  const userActive = taskList.find((item) => item.id.length > 2);
+  const userActive = taskList?.find((item) => item.id.length > 2);
   //Handlers
   const demoTaskHandler = () => {
     if (userActive) {
