@@ -8,7 +8,7 @@ const TaskCompleted = () => {
   const liveCount = useSelector((state) => state.task.taskCompleted?.length);
   const listContainer = taskCompleted.length === 0 ? "ul-remove" : "ul-task";
   return (
-    <div className="flex-1">
+    <>
       {liveCount ? (
         <div className="flex items-center text-[#968272]">
           <div className="my-2 mr-4 ml-6 text-xs md:text-sm">{`Completed - ${liveCount}`}</div>
@@ -25,7 +25,7 @@ const TaskCompleted = () => {
           />
         ))}
       </motion.ul>
-    </div>
+    </>
   );
 };
 

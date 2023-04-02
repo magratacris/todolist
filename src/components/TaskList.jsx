@@ -11,7 +11,7 @@ const TaskList = () => {
   const listContainer = taskList.length === 0 ? "ul-remove" : "ul-task";
 
   return (
-    <div className="flex-1">
+    <>
       {liveCount ? (
         <div className="flex items-center">
           <div className="my-2 mr-4 ml-6 text-xs text-[#968272] md:text-sm">{`Task${
@@ -30,7 +30,7 @@ const TaskList = () => {
           />
         ))}
       </motion.ul>
-    </div>
+    </>
   );
 };
 
