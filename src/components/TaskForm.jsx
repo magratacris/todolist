@@ -35,7 +35,7 @@ const TaskForm = () => {
     <motion.form
       layoutId="above"
       onSubmit={submitHandler}
-      className="mx-4 mt-2.5 mb-2 flex flex-col space-y-2 rounded-3xl bg-main-color px-4 pt-4 text-sm"
+      className="mx-4 mt-2.5 mb-2 flex flex-col space-y-2 rounded-3xl bg-sec-color px-4 pt-4 text-sm"
     >
       <div>
         <label htmlFor="task" className="text-xs md:text-sm">
@@ -44,18 +44,20 @@ const TaskForm = () => {
       </div>
 
       <div className=" flex items-center">
-        <motion.input
-          whileFocus={{ scale: 1.02 }}
+        <input
           type="text"
           name="task"
           maxLength="100"
           onChange={taskInputHandler}
           value={taskInput}
-          className="my-2 block flex-grow rounded-2xl bg-[#606276] p-2 text-xs outline-none md:my-4  md:text-sm"
+          className="my-2 block flex-grow rounded-2xl bg-white/50 p-2 text-xs outline-none  md:my-4 md:text-sm"
         />
 
         <div>
-          <button type="submit" className="mini-btn group">
+          <button
+            type="submit"
+            className="group m-1 rounded-xl border-[3px] border-sec-color p-1 hover:bg-accent-color md:m-2 md:p-2"
+          >
             <div>
               <AddIcon />
             </div>

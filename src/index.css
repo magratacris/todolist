@@ -1,24 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;800&display=swap");
 
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 * {
-  font-family: "Open Sans", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Poppins;
 }
 /* custom classes */
 @layer components {
-  .tasklist {
-    @apply my-2 mx-4 flex list-none flex-nowrap items-center justify-between rounded-3xl bg-main-color p-1 text-sm duration-500 hover:bg-sec-color md:my-4 md:mx-4 md:p-2 md:text-base;
-  }
-  .mini-btn {
-    @apply m-1 rounded-xl border-[3px] border-accent-color p-1 hover:bg-accent-color md:m-2 md:p-2;
-  }
-  .header-btn {
-    @apply m-1 whitespace-pre-line rounded-xl border-2 border-[#fb76a1] p-1 text-xs duration-500 md:m-2 md:p-2 md:text-sm;
-  }
   .ul-task {
-    @apply min-h-[5rem] flex-shrink overflow-y-auto overflow-x-hidden duration-500;
+    @apply min-h-[5rem] flex-shrink  overflow-y-auto overflow-x-hidden duration-500;
   }
   .ul-remove {
     @apply absolute;
@@ -27,8 +21,9 @@
 
 body {
   margin: auto;
-  background-color: #17181f;
-  color: white;
+
+  background: black;
+  color: #dbdbdb;
   overflow-x: hidden;
   overflow-y: hidden;
   scroll-behavior: smooth;
@@ -39,10 +34,10 @@ body {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background-color: #20212c;
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 50vw;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #42445c;
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 50vw;
 }

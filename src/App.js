@@ -33,12 +33,14 @@ const App = () => {
     setIsAddTask(false);
   };
   return (
-    <div className="mx-auto flex  h-screen max-w-3xl flex-col">
+    <div className="mx-auto  max-h-[95vh] max-w-3xl ">
       <Header onShow={resetAddTaskButtonHandler} />
       {!isAddTask && <AddTask onAddTask={addTaskHandler} show={isAddTask} />}
       {isAddTask && <TaskForm />}
-      <TaskList />
-      <TaskCompleted />
+      <div className="flex flex-col">
+        <TaskList />
+        <TaskCompleted />
+      </div>
     </div>
   );
 };

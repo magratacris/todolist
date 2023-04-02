@@ -13,7 +13,7 @@ const AddTask = ({ onAddTask, show }) => {
       {!show && (
         <motion.div
           layoutId="above"
-          className="group mx-4 flex items-center rounded-2xl bg-main-color duration-500"
+          className="group mx-4 flex items-center rounded-2xl bg-sec-color duration-500"
         >
           <motion.button
             key={"addtask"}

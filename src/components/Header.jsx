@@ -81,30 +81,24 @@ const Header = ({ onShow }) => {
           onContinue={isActive ? demoContinueHandler : clearContinueHandler}
         />
       )}
-      <div className="flex-shrink-1 my-2 flex h-16  items-center justify-center space-x-11 text-sm md:justify-between md:space-x-0">
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          onHoverStart={(e) => {}}
-          onHoverEnd={(e) => {}}
+      <div className=" my-2 flex h-16  items-center  justify-between space-x-11 px-4 text-sm md:space-x-0">
+        <button
           onClick={demoTaskHandler}
-          className="header-btn"
+          className=" whitespace-pre-line rounded-xl border-2 border-accent-color p-1 text-xs duration-500 hover:bg-[#dbdbdb] hover:text-black sm:p-3 "
         >
           {"Demo (Try Me!)"}
-        </motion.button>
+        </button>
 
         <div>
-          <h1 className="md:text:sm text-xs">ToDo List</h1>
+          <h1 className="text-xs text-[#968272] md:text-sm">ToDo List</h1>
         </div>
 
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          onHoverStart={(e) => {}}
-          onHoverEnd={(e) => {}}
+        <button
           onClick={clearTaskHandler}
-          className="header-btn"
+          className="m-1 whitespace-pre-line rounded-xl border-2 border-accent-color p-1 text-xs duration-500 hover:bg-[#dbdbdb] hover:text-black sm:p-3"
         >
           Clear All
-        </motion.button>
+        </button>
       </div>
     </>
   );

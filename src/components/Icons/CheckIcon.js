@@ -8,7 +8,7 @@ const CheckIcon = () => {
       height="24"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#fb76a1"
+      stroke="#dbdbdb"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"

@@ -10,10 +10,13 @@ module.exports = {
     },
     extend: {
       colors: {
-        "main-color": "#20212c",
-        "sec-color": "#42445c",
-        "accent-color": "#fb76a1",
+        "main-color": "rgba(255, 255, 255, 0.5)",
+        "sec-color": "#151515",
+        "accent-color": "#dbdbdb",
       },
+    },
+    fontFamily: {
+      openSans: ["Poppins", "sans-serif"],
     },
   },
   plugins: [],

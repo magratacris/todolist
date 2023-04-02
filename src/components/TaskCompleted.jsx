@@ -1,27 +1,31 @@
-import React, { Fragment } from "react";
 import { useSelector } from "react-redux";
 //components
-import TaskListDone from "./TaskListDone";
+import TaskListItem from "./TaskListItem";
 //framer-motion
 import { motion } from "framer-motion";
 const TaskCompleted = () => {
   const taskCompleted = useSelector((state) => state.task.taskCompleted);
   const liveCount = useSelector((state) => state.task.taskCompleted?.length);
-  const listContainer = taskCompleted?.length === 0 ? "ul-remove" : "ul-task";
+  const listContainer = taskCompleted.length === 0 ? "ul-remove" : "ul-task";
   return (
-    <Fragment>
+    <div className="flex-1">
       {liveCount ? (
-        <div className="flex items-center">
+        <div className="flex items-center text-[#968272]">
           <div className="my-2 mr-4 ml-6 text-xs md:text-sm">{`Completed - ${liveCount}`}</div>
           <hr className="mx-auto mr-8 flex-grow border-[1px] border-[#42445c]" />
         </div>
       ) : null}
       <motion.ul layoutId="done" className={listContainer}>
         {taskCompleted?.map((item) => (
-          <TaskListDone key={item.id} id={item.id} text={item.text} />
+          <TaskListItem
+            key={item.id}
+            id={item.id}
+            text={item.text}
+            container="done"
+          />
         ))}
       </motion.ul>
-    </Fragment>
+    </div>
   );
 };
 
