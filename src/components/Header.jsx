@@ -3,15 +3,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { taskListActions } from "../store/taskList-slice";
 //components
 import Modal from "./UI/Modal";
-//framer-motion
-import { motion } from "framer-motion";
 
 const DEMO_TASK = [
   {
     id: "t1",
     text: "Catherine's birthday party",
   },
-  { id: "t2", text: "Submit NY expense report" },
+  { id: "t2", text: "BornPink Day 1" },
   { id: "t3", text: "Add new colleagues to the mailing list" },
   { id: "t4", text: "Follow up Jimmy's question" },
   { id: "t5", text: "Get budget approved by Saimon" },

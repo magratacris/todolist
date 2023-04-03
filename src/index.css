@@ -12,7 +12,7 @@
 /* custom classes */
 @layer components {
   .ul-task {
-    @apply min-h-[5rem] overflow-y-auto overflow-x-hidden duration-500 xs:max-h-[10rem] sm:max-h-[18rem] 2xl:max-h-[14rem] 3xl:max-h-[23rem];
+    @apply min-h-[5rem] overflow-y-auto overflow-x-hidden duration-500;
   }
   .ul-remove {
     @apply absolute;

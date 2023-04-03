@@ -7,7 +7,8 @@ import { motion } from "framer-motion";
 
 const TaskList = () => {
   const taskList = useSelector((state) => state.task.taskList);
-  const liveCount = useSelector((state) => state.task.taskList?.length);
+  const taskCompleted = useSelector((state) => state.task.taskCompleted.length);
+  const liveCount = useSelector((state) => state.task.taskList.length);
   const listContainer = taskList.length === 0 ? "ul-remove" : "ul-task";
 
   return (
@@ -20,7 +21,14 @@ const TaskList = () => {
           <hr className="mx-auto mr-8 flex-grow border-[1px] border-[#42445c]" />
         </div>
       ) : null}
-      <motion.ul layoutId="list" className={listContainer}>
+      <motion.ul
+        layoutId="list"
+        className={`${listContainer} ${
+          taskCompleted <= 2
+            ? ""
+            : "xs:max-h-[11rem]  sm:max-h-[18rem] 2xl:max-h-[14rem] 3xl:max-h-[23rem]"
+        }`}
+      >
         {taskList?.map((list) => (
           <TaskListItem
             key={list.id}
