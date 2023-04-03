@@ -25,15 +25,11 @@ const TaskList = () => {
       ) : null}
       <motion.ul
         layoutId="list"
-        className={`${listContainer} ${
-          taskCompleted <= 2
-            ? ""
-            : "xs:max-h-[11rem]  sm:max-h-[18rem] 2xl:max-h-[14rem] 3xl:max-h-[23rem]"
-        }
+        className={`${listContainer} 
         ${
           taskCompleted === 0
             ? "xs:max-h-[20rem]  sm:max-h-[29rem] md:max-h-[33rem]  2xl:max-h-[30rem] 3xl:max-h-[45rem]"
-            : ""
+            : "xs:max-h-[11rem]  sm:max-h-[18rem] 2xl:max-h-[14rem] 3xl:max-h-[23rem]"
         } `}
       >
         {taskList?.map((list) => (
