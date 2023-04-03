@@ -28,8 +28,8 @@ const TaskList = () => {
         className={`${listContainer} 
         ${
           taskCompleted === 0
-            ? "xs:max-h-[25rem]  sm:max-h-[29rem] md:max-h-[33rem]  2xl:max-h-[30rem] 3xl:max-h-[45rem]"
-            : "xs:max-h-[13rem]  sm:max-h-[18rem] 2xl:max-h-[14rem] 3xl:max-h-[23rem]"
+            ? "xs:max-h-[27rem]  sm:max-h-[34rem] md:max-h-[38rem] lg:max-h-[53rem] 2xl:max-h-[33rem] 3xl:max-h-[45rem]"
+            : "xs:max-h-[13rem]  sm:max-h-[18rem] 2xl:max-h-[16rem] 3xl:max-h-[23rem]"
         } `}
       >
         {taskList?.map((list) => (
