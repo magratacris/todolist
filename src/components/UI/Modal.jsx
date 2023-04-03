@@ -1,5 +1,7 @@
 import React from "react";
+//framer-motion
 import { motion, AnimatePresence } from "framer-motion";
+
 const Modal = ({ question, content, onCancel, onContinue }) => {
   return (
     <AnimatePresence>

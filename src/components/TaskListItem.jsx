@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { taskListActions } from "../store/taskList-slice";
-//assets
+//local-icons
 import CheckIcon from "./Icons/CheckIcon";
 import TrashIcon from "./Icons/TrashIcon";
 import RefreshIcon from "./Icons/RefreshIcon";

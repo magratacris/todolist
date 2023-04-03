@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import TaskListItem from "./TaskListItem";
 //framer-motion
 import { motion } from "framer-motion";
+
 const TaskCompleted = () => {
   const taskCompleted = useSelector((state) => state.task.taskCompleted);
   const taskList = useSelector((state) => state.task.taskList?.length);

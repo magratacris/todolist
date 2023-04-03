@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { taskListActions } from "../store/taskList-slice";
-
-//assets
+//local-icons
 import AddIcon from "./Icons/AddIcon";
 //framer-motion
 import { motion } from "framer-motion";
