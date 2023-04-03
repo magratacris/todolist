@@ -48,7 +48,7 @@ const TaskListItem = ({ id, text, container }) => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         whileHover={{ scale: 1.02 }}
-        className="my-2 mx-4 flex list-none flex-nowrap items-center justify-between rounded-3xl bg-sec-color p-1 text-sm duration-500 hover:bg-white/70  md:text-base"
+        className="my-2 mx-4 flex list-none flex-nowrap items-center justify-between rounded-3xl bg-sec-color p-1 text-sm duration-500  md:text-base"
       >
         <div
           className={`${
@@ -62,14 +62,14 @@ const TaskListItem = ({ id, text, container }) => {
           <motion.button
             whileHover={{ scale: 1.2 }}
             onClick={buttonAndClickEvent(container).leftBtn}
-            className="group m-1 rounded-xl border-[3px] border-accent-color p-1 hover:bg-accent-color md:m-2 md:p-2"
+            className="group m-1 rounded-xl border-[3px] border-accent-color p-1  md:m-2 md:p-2"
           >
             <TrashIcon />
           </motion.button>
           <motion.button
             whileHover={{ scale: 1.2 }}
             onClick={buttonAndClickEvent(container).rightBtn}
-            className="group m-1 rounded-xl border-[3px] border-accent-color p-1 hover:bg-accent-color md:m-2 md:p-2"
+            className="group m-1 rounded-xl border-[3px] border-accent-color p-1  md:m-2 md:p-2"
           >
             {buttonAndClickEvent(container).icon}
           </motion.button>

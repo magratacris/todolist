@@ -30,6 +30,7 @@ const AddTask = ({ onAddTask, show }) => {
               rotate: -90,
               borderRadius: "100%",
             }}
+            style={{ touchAction: "manipulation" }}
             onClick={onAddTask}
             className=" my-1 mx-2 rounded-2xl border-[3px] border-accent-color py-3 px-3 hover:bg-accent-color"
           >
