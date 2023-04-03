@@ -7,9 +7,11 @@ import { motion } from "framer-motion";
 
 const TaskList = () => {
   const taskList = useSelector((state) => state.task.taskList);
-  const taskCompleted = useSelector((state) => state.task.taskCompleted.length);
-  const liveCount = useSelector((state) => state.task.taskList.length);
-  const listContainer = taskList.length === 0 ? "ul-remove" : "ul-task";
+  const taskCompleted = useSelector(
+    (state) => state.task.taskCompleted?.length
+  );
+  const liveCount = useSelector((state) => state.task.taskList?.length);
+  const listContainer = taskList?.length === 0 ? "ul-remove" : "ul-task";
 
   return (
     <>
