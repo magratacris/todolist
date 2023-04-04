@@ -9,16 +9,6 @@
   box-sizing: border-box;
   font-family: Poppins;
 }
-/* custom classes */
-@layer components {
-  .ul-task {
-    @apply min-h-[5rem] overflow-y-auto overflow-x-hidden duration-500;
-  }
-  .ul-remove {
-    @apply absolute;
-  }
-}
-
 body {
   margin: auto;
 
@@ -28,16 +18,26 @@ body {
   overflow-y: hidden;
   scroll-behavior: smooth;
 }
-
-/* scrollbar design */
-::-webkit-scrollbar {
-  width: 10px;
+/* custom classes */
+@layer components {
+  .ul-task {
+    @apply min-h-[5rem] overflow-y-auto overflow-x-hidden duration-500;
+  }
+  .ul-remove {
+    @apply absolute;
+  }
 }
-::-webkit-scrollbar-track {
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 50vw;
-}
-::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 50vw;
+@layer base {
+  /* scrollbar design */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50vw;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50vw;
+  }
 }
