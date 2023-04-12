@@ -1,46 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { taskListActions } from "../store/taskList-slice";
 //components
 import Modal from "./UI/Modal";
 
-const DEMO_TASK = [
-  {
-    id: "t1",
-    text: "Catherine's birthday party",
-  },
-  { id: "t2", text: "BornPink Day 1" },
-  { id: "t3", text: "Add new colleagues to the mailing list" },
-  { id: "t4", text: "Follow up Jimmy's question" },
-  { id: "t5", text: "Get budget approved by Saimon" },
-  { id: "t6", text: "Itzy concert" },
-];
-const DEMO_COMPLETED_TASK = [
-  { id: "c1", text: "Check my work emails" },
-  { id: "c2", text: "Workout" },
-  { id: "c3", text: "Lazada delivery" },
-  { id: "c4", text: "Develop new homepage" },
-  { id: "c5", text: "Send pitch deck to prospect" },
-  { id: "c6", text: "Yoga classes" },
-];
 const Header = ({ onShow }) => {
   const [modalShow, setModalShow] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const dispatch = useDispatch();
   const taskList = useSelector((state) => state.task.taskList);
   const userActive = taskList?.find((item) => item.id.length > 2);
+  const [demoTask, isDemoTask] = useState([]);
+  const [demoTaskCompleted, isDemoTaskCompleted] = useState([]);
+  //local data fetching
+  useEffect(() => {
+    const demo = async () => {
+      try {
+        const response = await fetch("/data/demo.json");
+        const data = await response.json();
+        isDemoTask(data[0]);
+        isDemoTaskCompleted(data[1]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    demo();
+  }, []);
   //Handlers
-  const demoTaskHandler = () => {
+  const demoButtonHandler = () => {
     if (userActive) {
       setModalShow(true);
       setIsActive(true);
     } else {
-      dispatch(taskListActions.replaceTaskListToDemo(DEMO_TASK));
-      dispatch(taskListActions.replaceCompListToDemo(DEMO_COMPLETED_TASK));
+      dispatch(taskListActions.replaceTaskListToDemo(demoTask));
+      dispatch(taskListActions.replaceCompListToDemo(demoTaskCompleted));
     }
   };
 
-  const clearTaskHandler = () => {
+  const clearButtonHandler = () => {
     if (userActive) {
       setModalShow(true);
       setIsActive(false);
@@ -54,8 +51,8 @@ const Header = ({ onShow }) => {
   };
   const demoContinueHandler = () => {
     setModalShow(false);
-    dispatch(taskListActions.replaceTaskListToDemo(DEMO_TASK));
-    dispatch(taskListActions.replaceCompListToDemo(DEMO_COMPLETED_TASK));
+    dispatch(taskListActions.replaceTaskListToDemo(demoTask));
+    dispatch(taskListActions.replaceCompListToDemo(demoTaskCompleted));
   };
   const clearContinueHandler = () => {
     setModalShow(false);
@@ -81,7 +78,7 @@ const Header = ({ onShow }) => {
       )}
       <div className=" my-2 flex h-16  items-center  justify-between space-x-11 px-4 text-sm md:space-x-0">
         <button
-          onClick={demoTaskHandler}
+          onClick={demoButtonHandler}
           style={{
             touchAction: "manipulation",
             WebkitTapHighlightColor: "transparent",
@@ -96,7 +93,7 @@ const Header = ({ onShow }) => {
         </div>
 
         <button
-          onClick={clearTaskHandler}
+          onClick={clearButtonHandler}
           style={{
             touchAction: "manipulation",
             WebkitTapHighlightColor: "transparent",

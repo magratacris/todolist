@@ -9,6 +9,7 @@ const taskListSlice = createSlice({
     savedCompTask: JSON.parse(localStorage.getItem("completed")),
   },
   reducers: {
+    //*functions--------------------------
     addTask(state, action) {
       const newTask = action.payload;
       state.taskList.unshift({
@@ -49,7 +50,7 @@ const taskListSlice = createSlice({
       const selectedItem = action.payload;
       state.taskCompleted = selectedItem;
     },
-    //*Demo--------------
+    //*Demo functions--------------
     replaceTaskListToDemo(state, action) {
       const demo = action.payload;
       state.taskList = [...demo];

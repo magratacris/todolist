@@ -4,7 +4,6 @@ import AddIcon from "./Icons/AddIcon";
 //framer-motion
 import { motion } from "framer-motion";
 
-
 const AddTask = ({ onAddTask, show }) => {
   return (
     <Fragment>
@@ -38,6 +37,7 @@ const AddTask = ({ onAddTask, show }) => {
           <h1>Add a Task</h1>
         </motion.div>
       )}
+      <div></div>
     </Fragment>
   );
 };
