@@ -49,13 +49,13 @@ const TaskForm = () => {
           maxLength="100"
           onChange={taskInputHandler}
           value={taskInput}
-          className="my-2 block flex-grow rounded-2xl bg-white/50 p-2 text-xs outline-none  md:my-4 md:text-sm"
+          className="my-2 block flex-grow rounded-2xl bg-white/20 p-2 text-xs outline-none  md:my-4 md:text-sm"
         />
 
         <div>
           <button
             type="submit"
-            className="group m-1 rounded-xl border-[3px] border-sec-color p-1 hover:bg-accent-color md:m-2 md:p-2"
+            className="group m-1 rounded-xl border-[3px] border-accent-color p-1   md:m-2 md:p-2"
           >
             <div>
               <AddIcon />
