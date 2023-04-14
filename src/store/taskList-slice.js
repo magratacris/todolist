@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const taskListSlice = createSlice({
   name: "taskList",
   initialState: {
+    isUserActive: false,
     taskList: [],
     taskCompleted: [],
     savedInput: JSON.parse(localStorage.getItem("todos")),
@@ -44,6 +45,13 @@ const taskListSlice = createSlice({
       state.taskCompleted = state.taskCompleted.filter(
         (item) => item.id !== id
       );
+    },
+    setUserActive(state, action) {
+      if (action.payload) {
+        state.isUserActive = true;
+      } else {
+        state.isUserActive = false;
+      }
     },
     //*local storage----------------
     replaceTaskCompleted(state, action) {

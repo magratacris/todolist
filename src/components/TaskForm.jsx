@@ -27,7 +27,9 @@ const TaskForm = () => {
         text: taskInput,
       })
     );
+
     setTaskInput("");
+    dispatch(taskListActions.setUserActive(true));
   };
 
   return (

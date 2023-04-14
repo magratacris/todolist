@@ -1,8 +1,13 @@
 import React from "react";
+//redux
+import { taskListActions } from "../../store/taskList-slice";
+import { useDispatch } from "react-redux";
 //framer-motion
 import { motion, AnimatePresence } from "framer-motion";
 
 const Modal = ({ question, content, onCancel, onContinue }) => {
+  const dispatch = useDispatch();
+
   return (
     <AnimatePresence>
       <motion.div
@@ -30,13 +35,18 @@ const Modal = ({ question, content, onCancel, onContinue }) => {
         </p>
         <div className="mt-2 flex scale-75 flex-nowrap self-end md:scale-100">
           <button
-            onClick={() => onCancel()}
+            onClick={() => {
+              onCancel();
+            }}
             className="m-1 rounded-2xl border-[3px] border-accent-color p-2  hover:bg-accent-color hover:text-black "
           >
             Cancel
           </button>
           <button
-            onClick={() => onContinue()}
+            onClick={() => {
+              onContinue();
+              dispatch(taskListActions.setUserActive());
+            }}
             className="m-1 rounded-2xl border-[3px] border-accent-color p-1  hover:bg-accent-color  hover:text-black   md:p-2"
           >
             Continue

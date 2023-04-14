@@ -6,10 +6,10 @@ import Modal from "./UI/Modal";
 
 const Header = ({ onShow }) => {
   const [modalShow, setModalShow] = useState(false);
-  const [isActive, setIsActive] = useState(false);
+  const [demoButton, setDemoButton] = useState(false);
   const dispatch = useDispatch();
-  const taskList = useSelector((state) => state.task.taskList);
-  const userActive = taskList?.find((item) => item.id.length > 2);
+  const isUserActive = useSelector((state) => state.task.isUserActive);
+  // const userActive = taskList?.find((item) => item.id.length > 2);
   const [demoTask, isDemoTask] = useState([]);
   const [demoTaskCompleted, isDemoTaskCompleted] = useState([]);
   //local data fetching
@@ -26,11 +26,11 @@ const Header = ({ onShow }) => {
     };
     demo();
   }, []);
-  //Handlers
+  // Button on header handlers
   const demoButtonHandler = () => {
-    if (userActive) {
+    if (isUserActive) {
       setModalShow(true);
-      setIsActive(true);
+      setDemoButton(true);
     } else {
       dispatch(taskListActions.replaceTaskListToDemo(demoTask));
       dispatch(taskListActions.replaceCompListToDemo(demoTaskCompleted));
@@ -38,24 +38,29 @@ const Header = ({ onShow }) => {
   };
 
   const clearButtonHandler = () => {
-    if (userActive) {
+    setDemoButton(false);
+
+    if (isUserActive) {
       setModalShow(true);
-      setIsActive(false);
     } else {
       dispatch(taskListActions.clearAll());
       onShow();
     }
   };
+  console.log(isUserActive);
   const demoCancelHandler = () => {
     setModalShow(false);
   };
+  //continue handlers
   const demoContinueHandler = () => {
+    dispatch(taskListActions.setUserActive(false));
     setModalShow(false);
     dispatch(taskListActions.replaceTaskListToDemo(demoTask));
     dispatch(taskListActions.replaceCompListToDemo(demoTaskCompleted));
   };
   const clearContinueHandler = () => {
     setModalShow(false);
+    dispatch(taskListActions.setUserActive(false));
     dispatch(taskListActions.clearAll());
     onShow();
   };
@@ -70,10 +75,10 @@ const Header = ({ onShow }) => {
     <>
       {modalShow && (
         <Modal
-          question={isActive ? modalContent.q1 : modalContent.q2}
-          content={isActive ? modalContent.demo : modalContent.clearAll}
+          question={demoButton ? modalContent.q1 : modalContent.q2}
+          content={demoButton ? modalContent.demo : modalContent.clearAll}
           onCancel={demoCancelHandler}
-          onContinue={isActive ? demoContinueHandler : clearContinueHandler}
+          onContinue={demoButton ? demoContinueHandler : clearContinueHandler}
         />
       )}
       <div className=" my-2 flex h-16  items-center  justify-between space-x-11 px-4 text-sm md:space-x-0">
