@@ -31,13 +31,13 @@ const Modal = ({ question, content, onCancel, onContinue }) => {
         <div className="mt-2 flex scale-75 flex-nowrap self-end md:scale-100">
           <button
             onClick={() => onCancel()}
-            className="m-1 rounded-2xl border-[3px] border-accent-color p-2 hover:bg-accent-color"
+            className="m-1 rounded-2xl border-[3px] border-accent-color p-2  hover:bg-accent-color hover:text-black "
           >
             Cancel
           </button>
           <button
             onClick={() => onContinue()}
-            className="m-1 rounded-2xl border-[3px] border-accent-color  p-1  hover:bg-accent-color md:p-2"
+            className="m-1 rounded-2xl border-[3px] border-accent-color p-1  hover:bg-accent-color  hover:text-black   md:p-2"
           >
             Continue
           </button>
